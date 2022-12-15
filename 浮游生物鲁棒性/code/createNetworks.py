@@ -1,6 +1,13 @@
 import pandas as pd
 import networkx as nx
 import scipy.stats as ss
+
+
+# 1.导入文件（浮游生物数据）
+# 2.计算浮游生物之间的相互作用关系
+# 3.创建网络对象
+
+
 class createNetworks:
     data = None  #导入的文件数据
     network = nx.Graph() #创建的网络
@@ -35,7 +42,7 @@ class createNetworks:
                 if cof[1] < 0.05:
                     if i != j :
                         x += 1
-                        self.network.add_edge(i,j)
+                        self.network.add_edge(i,j,weight = cof[0])
                         self.ccf.loc[i][j] = cof[0]
         graph = self.network.copy()
         self.network.remove_nodes_from(nx.isolates(graph))
@@ -51,6 +58,7 @@ if __name__ == '__main__':
     G = createNetworks(sheetname="Sheet1", filePath="../resource/data/1.xlsx",startCol=3).getNetwork()
     print(len(G.nodes))
     print(len(G.edges))
+
 
 
 
