@@ -5,6 +5,7 @@
 # 3.aveEff(self) : 平均网络效率
 
 
+
 # putOutFile（self) : 将所有鲁棒性分析结果输出到文件
 
 
@@ -127,7 +128,7 @@ class robustnessAnalysis:
                 for i in graph.nodes:
                     for j in graph.nodes:
                         if i != j:
-                            eff = nx.shortest_path_length(G,source =i, target=j, weight =' weight ') + eff
+                            eff = nx.shortest_path_length(G,source =i, target=j, weight ='weight') + eff
                 if eff:
                     Metrics.append(eff/(N*(N-1)))
                 else:
@@ -144,7 +145,7 @@ class robustnessAnalysis:
                     for i in graph.nodes:
                         for j in graph.nodes:
                             if i != j:
-                                eff = nx.shortest_path_length(G, source=i, target=j, weight=' weight ') + eff
+                                eff = nx.shortest_path_length(G, source=i, target=j, weight='weight') + eff
                     if eff:
                         Metrics.append(eff/(N*(N-1)))
                     else:
@@ -158,7 +159,7 @@ class robustnessAnalysis:
                     for i in graph.nodes:
                         for j in graph.nodes:
                             if i != j:
-                                eff = nx.shortest_path_length(G, source=i, target=j, weight=' weight ') + eff
+                                eff = nx.shortest_path_length(G, source=i, target=j, weight='weight') + eff
                     if eff:
                         Metrics.append(eff/(N*(N-1)))
                     else:

@@ -134,7 +134,8 @@ class attack:
         for i in graph.nodes:
             cloForK = 0
             for j in graph.nodes:
-                cloForK += nx.shortest_path_length(graph,source=i,target=j,weight='weight')
+                if i !=j:
+                    cloForK += nx.shortest_path_length(graph,source=i,target=j,weight='weight')/nx.shortest_path_length(graph,source=i,target=j)
             atcList[i]=cloForK
         atcList = sorted(atcList.items(),key=lambda x:x[1],reverse=True)
         temp = []
@@ -152,14 +153,12 @@ class attack:
                 faile.append(failedList.pop(-1))
             failed.append(faile)
         failed.append(failedList)
-        print("******attack_weightClo:\n",failed)
+        print("******   attack_weightClo:\n",failed)
         self.atc["weightClo"] = failed
         return failed
 
-
     def select(self,NameFun):
         return
-
 
 
 
