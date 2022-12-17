@@ -1,9 +1,20 @@
+# 构造方法__init__(self,network:createNetworks,failedNode:list=None,failedEdge:list=None):
+# 包括几种鲁棒性分析方法
+# 1.aveCon(self) : 平均顶点连通性
+# 2.aveClu(self) : 平均聚类系数
+# 3.aveEff(self) : 平均网络效率
+
+
+# putOutFile（self) : 将所有鲁棒性分析结果输出到文件
+
+
 import pandas as pd
 import networkx as nx
 import numpy as np
 import createNetworks
 import attack
 class robustnessAnalysis:
+
 
     network = None
     failedNode = None
@@ -12,7 +23,7 @@ class robustnessAnalysis:
 
     rob = {}
 
-    def __init__(self,network,failedNode=None,failedEdge=None):
+    def __init__(self,network:createNetworks,failedNode:list=None,failedEdge:list=None):
         self.network = network
         self.failedNode = failedNode
         self.failedEdge = failedEdge
@@ -99,7 +110,7 @@ class robustnessAnalysis:
         self.rob["aveClu"] = Metrics
         return Metrics
     def aveEff(self):
-        # 平均聚类系数
+        # 平均网络效率
         Metrics = []
         failedNode = None
         failedEdge = None

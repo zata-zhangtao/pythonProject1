@@ -42,7 +42,7 @@ class createNetworks:
                 if cof[1] < 0.05:
                     if i != j :
                         x += 1
-                        self.network.add_edge(i,j,weight = cof[0])
+                        self.network.add_edge(i,j,weight = abs(cof[0]))
                         self.ccf.loc[i][j] = cof[0]
         graph = self.network.copy()
         self.network.remove_nodes_from(nx.isolates(graph))
